@@ -1,31 +1,31 @@
 Jira:
   build: ./Jira
   ports:
-    -"8000:8000"
+    - "8000:8000"
 
   links:
-    -DB
+    - DB
 
 Confluence:
   build: ./Confluence
   ports:
-    -"8090:8090"
+    - "8090:8090"
 
   links:
-    -DB
-    -Jira
+    - DB
+    - Jira
 
 Stash:
   build: ./stash
   ports:
     - "7990:7990"
     - "7999:7999"
-    
+
   links:
-    -DB
-    -Jira
+    - DB
+    - Jira
 
 DB:
   image: postgres
   volumes:
-    -"/var/lib/postgresql/"
+    - "/var/lib/postgresql/"
